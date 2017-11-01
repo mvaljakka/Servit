@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/sha256.js"></script>
+
+<link rel="stylesheet" href="/css/multiple-select.css" />
+<script src="css/multiple-select.js"></script>
+
+<script src="js/admin.js"></script>
+
+<style>
+    th,td {padding: 4px; }
+    .button {
+    background-color: #96adb6; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; }
+    
+    .red { background-color: #640113; }
+    
+    
+</style>
+</head>
+<body>
+<div id="admin-header">
+    <div class="pure-g">
+        <div class="pure-u-2-24"></div>
+        <div class="pure-u-20-24">
+            <img src="images/servit.png" width="120" heigth="60">
+                                                                <font style="font-size:12px; color:#4d4d4d">&nbsp;&nbsp;&nbsp;&nbsp;sharing economy - Ethereum - demo</font><br/>
+            <div class="pure-menu pure-menu-horizontal" style="background-color:#4d4d4d;">
+            <ul class="pure-menu-list">
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link" onClick="selection(0)" style="color: #a0a0a0">Log in</a></li>
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link" onClick="selection(1)" style="color: #a0a0a0">Services</a></li>
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link" onClick="selection(2)" style="color: #a0a0a0">Contracts</a></li>
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link" onClick="selection(3)" style="color: #a0a0a0">Info</a></li>
+             
+              <li class="pure-menu-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>  
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link" onClick="logout()" style="color: #a0a0a0">Log out</a></li>
+            </ul>      
+            </div>
+           
+        </div>
+        <div class="pure-u-2-24"></div>
+    </div>
+</div>
+<br/>
+<div id="admin-body" style="min-height: 600px">
+  <div class="pure-g">
+    <div class="pure-u-2-24"></div>  
+    <div class="pure-u-20-24">
+
+        <div id="section0">
+            <div id="login">
+            <p><b>Log in</b></p>
+                  <div class="pure-g">
+                  <div class="pure-u-6-24">
+                      <label for="user">email</label>
+                      <input type="text" id="user"/> 
+                  </div>
+                  <div class="pure-u-6-24">
+                      <label for="pass">password</label>
+                      <input type="password" id="pass"/>
+                  </div>
+                  <div class="pure-u-6-24">
+                      <button class="button" onClick="login()">log in</button>
+                  </div>
+                  <div class="pure-u-6-24">
+                  </div>
+                   
+               </div>
+            </div>
+            <p><b><span id="profile_label">or Sign in</span></b></p>
+            <table border="0" width="100%"><tr><td width="45%">
+            <table class="pure-table">
+                <tbody>
+                    <tr><td>email</td><td><input type="text" id="profile_email"/></td></tr>
+                    <tr><td>first name</td><td><input type="text" id="profile_first"/></td></tr>
+                    <tr><td>last name</td><td><input type="text" id="profile_last"/></td></tr>
+                    <tr><td>company</td><td><input type="text" id="profile_company"/></td></tr>
+                    <tr><td>tel</td><td><input type="text" id="profile_tel"/></td></tr>
+                    <tr><td>Ethereum address</td><td><input type="text" id="profile_eth"/> see instructions</td></tr>
+                    <tr><td><span id="passlabel">password</span></td><td><input type="password" id="profile_pass1"/></td></tr>
+                    <tr><td>password (again)</td><td><input type="password" id="profile_pass2"/></td></tr>
+                    <tr><td></td><td><button id="profile_button1" class="button" onClick="profile_insert()">Sign in</button>
+                                     <button id="profile_button2" class="button" onClick="profile_update('update')">Update</button></td></tr>
+                </tbody>
+            </table>
+            </td><td width="5%"></td>
+                   <td style="background-color: #303030;" valign="top" width="50%">
+                       <!-- <span id="monitor" style="font-size: 75%; color: #00e000">Your blockchain monitor (refreshed every 10 sec)</span> -->
+                       <iframe id='monitor' src="/monitor/0" width="100%" height="400"></iframe>
+                   </td>
+        </tr></table>
+             
+        </div>
+        
+        <div id="section1">
+            <p><b>Service search</b></p>
+       
+                  <div class="pure-g">
+                  <div class="pure-u-4-24">
+                      <input type="radio" name="service_role" value="1">available
+                      <input type="radio" name="service_role" value="2">requests
+                  </div>
+                  <div class="pure-u-8-24">
+                      <label for="service_type">type</label>
+                      <select id="service_type"><option>(choose)</option></select>
+                  </div>    
+                  <div class="pure-u-8-24">
+                      <label for="service_keywords">keywords</label>
+                      <input type="text" id="service_keywords"/>
+                  </div>
+                  <div class="pure-u-4-24">
+                      <button class="button" onClick="service_search()">search</button>
+                  </div> 
+               </div>
+          
+            
+            <div>
+            
+            <table class="pure-table" width="100%">
+            <thead>
+               <tr><th></th><th>service</th><th>type</th><th>keywords</th><th>who</th></tr>
+            </thead>
+            <tbody id="service_rows">
+            </tbody>
+            </table>
+            </div>    
+            <br/>
+            
+            
+          
+            <b>Add service <input type="radio" id="sr1" name="myservice_role" checked value="offer">offer 
+                           <input type="radio" id="sr2" name="myservice_role" value="request">request</b>
+             <table class="pure-table">
+                <tbody>
+                    <tr><td>type</td><td><select id="myservice_type"><option>(choose)</option></select>
+                                         <!-- or add new<input type="text" id="myservice_type_new"/>--> </td></tr>
+                    <tr><td>title</td><td><input type="text" id="myservice_title"/></td></tr>
+                    <tr><td>description</td><td><textarea cols="40" rows="4" id="myservice_description"></textarea></td></tr>
+                    <tr><td>area</td><td><input type="text" id="myservice_area"/></td></tr>
+                    <tr><td>keywords</td><td><input type="text" id="myservice_keywords"/></td></tr>
+                    <tr><td></td><td><button class="button" onClick="service_insert()">save</button></td></tr>
+                </tbody>
+             </table>
+            
+        </div>  <!-- end section 1 -->
+        
+        <div id="section2">
+                        
+            <p><b>New contract</b> (by service provider)</p>
+            <table class="pure-table">
+                <tbody>
+                    <tr><td>client's email</td><td><select id="c_buyer_email"><option>(valitse)</option></select></td></tr>
+                    <tr><td>client's Ethereum address</td><td><input type="text" id="c_buyer_eth"/></td></tr>
+                    <tr><td>title</td><td><input type="text" id="c_title"/></td></tr>
+                    <tr><td>description</td><td><input type="text" id="c_description"/></td></tr>
+                    <tr><td>duration</td><td><input type="text" id="c_timeframe"/></td></tr>
+                    <tr><td>delivery #1</td><td>(you may add it later)</td></tr>
+                    <tr><td>description</td><td><input type="text" id="d_description"/></td></tr>
+                    <tr><td>duration</td><td><input type="text" id="d_timeframe"/></td></tr>
+                    <tr><td>price</td><td><input type="text" id="d_total"/></td></tr>
+                    <tr><td>deposit</td><td><input type="text" id="d_deposit"/></td></tr>
+                    <tr><td></td><td><button class="button" onClick="save_contract()">save</button><br/><br/>You'll receive contract Ethereum adddress and hash.
+                            Keep them safe (see instructions)</td></tr>
+                </tbody>
+            </table>    
+        
+            
+            
+        <div>
+            <p><b>My contracts (I sell)</b></p>
+           <table class="pure-table" width="100%">
+           <thead>
+               <tr><th>contract</th><th>delivery</th></tr>
+           </thead>
+           <tbody>
+               <tr><td>otsikko, eth-osoite<br/>ostaja</td><td><ol><li>toimituksen kuvaus<br/>toimituksen tila<br/>toimituksen arvo</li>
+                                                                       <li>toimituksen kuvaus<br/>toimituksen tila<br/>toimituksen arvo</li></ol></td></tr>
+                   
+           </tbody>
+           </table>
+            
+             <p><b>My contracts (I buy)</b></p>
+           <table class="pure-table" width="100%">
+           <thead>
+               <tr><th>contract</th><th>delivery</th></tr>
+           </thead>
+           <tbody>
+               <tr><td>otsikko, eth-osoite<br/>myyjä<br/>
+                   status: pending, code: <input type="text" size="10"/><button class="button">accept</button></td>
+                       <td><ol><li>toimituksen kuvaus<br/>toimituksen tila: valmis<br/>toimituksen arvo</li>
+                               <li>toimituksen kuvaus<br/>delivery status: pending, code:<input type="text" size="10"/><button class="button">accept</button> <br/>toimituksen arvo</li></ol></td></tr>
+                   
+           </tbody>
+           </table>
+        </div>       
+            
+        </div><!-- end section 2: sopimukset -->
+
+
+            
+        <div id="section3"><!--- SECTION 3: tietoa ------------------------------------------------------------------------------------------>
+            
+           some info
+            
+        </div><!-- END SECTION 3 tietoa  ---->    
+        
+    </div>
+    <div class="pure-u-2-24"></div>
+   </div>  
+</div>
+    
+<br/><br/>    
+    
+<div class="pure-g">    
+    <div class="pure-u-2-24"></div>
+    <div class="pure-u-20-24" id="admin-footer" align="center" style="background-color: #4d4d4d">
+        <font style="color: #eeeeee">Copyright NH, MV</font>
+    </div>
+    <div class="pure-u-2-24"></div>
+</div>
+</body>
+</html>

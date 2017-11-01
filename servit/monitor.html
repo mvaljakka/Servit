@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="5"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+   $(function() {
+       var s = window.location.href.split('/')
+       var id = s[s.length-1]
+       servit_load_resource('Log','profile_id',id,'dt desc','scott','tiger',function(data) {
+           var html='';
+           for (var i=0; i<data.length; i++) {
+               if (data[i]['status'] == '[ETH] OK') html += '<font style="font-size: 75%; color: #00e000;">';
+               if (data[i]['status'] == '[SQL] OK') html += '<font style="font-size: 75%; color: #e0e000;">';
+               if (data[i]['status'] == '[ETH] ERROR') html += '<font style="font-size: 75%; color: #e000000;">';
+               if (data[i]['status'] == '[SQL] ERROR') html += '<font style="font-size: 75%; color: #ff400;">';
+               html += data[i]['status']+':'+data[i]['id']+':'+data[i]['txmsg']+'</font></br>';
+           }
+           $("#log").html(html);
+       })
+   });    
+</script>
+</head>
+<body bgcolor="#202020">
+<font style="font-size: 75%; color: #00e000;">
+<b>-- Your blockchain monitor --</b></font><br/>
+<div id="log">
+    
+</div>
+
+</body>
+</html>

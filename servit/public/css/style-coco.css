@@ -1,0 +1,164 @@
+
+/*
+	Theme Name: Opinahjo 2016
+	Description: This is the sample theme created for the Genesis Framework.
+	Author: Opinahjo
+
+	Version: 1.0
+
+	Template: genesis
+*/
+
+.coco_page_content
+{
+  font-family: "rosario", sans-serif !important;
+}
+
+.coco_container
+{
+  margin: 10px;
+}
+
+.coco_page_content .btn
+{
+  border: none !important;
+  border-radius: 0;
+}
+
+#coco_title
+{
+  padding-bottom: 20px;
+}
+
+.coco_container .progress-bar
+{
+  background-color: #5aa24c;
+}
+.coco_start
+{
+  padding-top: 10px;
+}
+
+.btn-coco-start
+{
+  margin: 0 auto;
+  display: block !important;
+  width: 200px;  
+  background-color: #5aa24c !important;
+  color: #fff !important;
+}
+
+.btn-coco-start:hover
+{
+  opacity: 0.8;
+}
+
+.coco_coursetest_content
+{
+  min-height: 300px;
+}
+
+.coco_question_content
+{
+
+}
+
+.coco_question
+{
+  margin: 30px 0;
+}
+
+.coco_options_content
+{
+  padding: 20px 30px;
+  background-color: #7bb570;
+  margin-bottom: 50px;
+}
+
+.coco_option.checkbox,
+.coco_option.radio
+{
+  background-color: #eee;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 10px !important;
+}
+
+.coco_option.checkbox
+{
+  margin-bottom: 10px !important;
+}
+
+.coco_option.checkbox label,
+.coco_option.radio label
+{
+  font-weight: 300;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.coco_option.btn
+{
+  text-align: left;
+  padding: 0 10px;
+  white-space: normal;
+}
+
+.coco_question_result
+{
+  width: 100%;
+  float: left;
+}
+
+.coco_question_circle
+{
+  border-radius: 50px;
+  background-color: #eee;
+  width: 75px;
+  height: 75px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.coco_question_circle.done
+{
+  background-color: #5aa24c;
+}
+
+.coco_question_circle.fail
+{
+  background-color: #bb5b61;
+}
+
+.coco_question_circle.gray
+{
+  background-color: #c0c0d0;
+}
+
+.coco_page_content .container-fluid
+{
+    padding: 60px;
+    background-color: #eee;
+}
+
+.coco_page_content .answer
+{
+  background-color: #666666;
+  color: #fff;
+  width: 200px;
+}
+
+.coco_page_content .answer:hover
+{
+  background-color: #666666;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.parrot_content
+{
+  float: right;
+  width:  100px;  
+  height: 100px;  
+}

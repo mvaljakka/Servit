@@ -1,0 +1,16 @@
+0x71f096256E51a55e611d8951cD67DF955cd0Dbeb
+
+
+enter address for new profile:0x566F9098051787Ac8328fFC1A9622cD6f8010331
+enter profile details to be hashed:MIKKO
+Introduction contracts Auth, Profile
+deploying Auth..
+TX hash 0xae13ef93e672ad72fe0d1e6c81460ff8e42d0f81bf1e5f9a1a10dcff41983882
+Deploy transaction hash: 0xae13ef93e672ad72fe0d1e6c81460ff8e42d0f81bf1e5f9a1a10dcff41983882
+Success : Auth contract address is 0x6d0028d3C8c6d4c6EC88CBa44Cd56BbbbD6E8846
+Contract instance established, address 0x6d0028d3C8c6d4c6EC88CBa44Cd56BbbbD6E8846
+Proceeding to deploy the actual Profile
+TX hash 0x7c27aead67637d9ab649b124dec98bbb0776aaec663dcbe15ddd4fc64aed3148
+Deploy transaction hash: 0x7c27aead67637d9ab649b124dec98bbb0776aaec663dcbe15ddd4fc64aed3148
+Success : Profile contract address is 0xBCd04Ed7578eC6D7E50B3b87FCc147767a1252CC
+Contract instance established, address 0xBCd04Ed7578eC6D7E50B3b87FCc147767a1252CC

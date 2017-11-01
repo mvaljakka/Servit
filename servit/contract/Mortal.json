@@ -1,0 +1,40 @@
+{
+  "contract_name": "Mortal",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getCreator",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "close",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000c57fe5b5b60008054600160a060020a03191633600160a060020a03161790555b5b60d5806100386000396000f300606060405263ffffffff60e060020a6000350416630ee2cb108114602a578063c74073a1146053575bfe5b3415603157fe5b6037606e565b60408051600160a060020a039092168252519081900360200190f35b3415605a57fe5b606c600160a060020a0360043516607e565b005b600054600160a060020a03165b90565b60005433600160a060020a0390811691161460995760006000fd5b80600160a060020a0316ff5b5b505600a165627a7a72305820998f2995069667fa8830b68b1490b2909d0f19c03024d006e0f3639e19e7f0b40029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1501519108315
+}
